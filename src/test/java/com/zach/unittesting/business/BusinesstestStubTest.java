@@ -37,6 +37,41 @@ class SomeDataServiceStubOneNumber implements SomeDataService{
 
 public class BusinesstestStubTest {
 
+	public class BusinesstestStubTest {
+	
+		@Test
+		public void CalcSumUsingDataService() {
+			Businesssimp business = new Businesssimp();
+			business.setSomeDataService(new SomeDataServiceStub()); 
+			
+			int actualresult = business.calculattesumUsingDataService();
+			int expectedresult =6 ;
+			assertEquals(expectedresult, actualresult);
+			
+		}
+		
+		
+		@Test
+		public void CalcSumEmpty() {
+			Businesssimp business = new Businesssimp();
+			business.setSomeDataService(new SomeDataServiceStubEmpty()); 
+			int actualresult = business.calculattesumUsingDataService();
+			int expectedresult =0 ;
+			assertEquals(expectedresult, actualresult);
+		}
+		
+	
+		@Test
+		public void CalcSumOneValue() {
+			Businesssimp business = new Businesssimp();
+			business.setSomeDataService(new SomeDataServiceStubOneNumber()); 
+			int actualresult = business.calculattesumUsingDataService();
+			int expectedresult =1 ;
+			assertEquals(expectedresult, actualresult);
+		}
+	}
+
+
 	@Test
 	public void CalcSumUsingDataService() {
 		Businesssimp business = new Businesssimp();
